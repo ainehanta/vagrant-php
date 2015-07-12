@@ -1,0 +1,30 @@
+# vi: set ft=ruby :
+
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'azure'
+
+Vagrant.configure('2') do |config|
+
+  config.vm.box = 'azure'
+
+  config.vm.provider :azure do |azure|
+    azure.subscription_id      = ENV['AZURE_SUBSCRIPTION_ID']
+    azure.mgmt_certificate     = './keys/azure.pem'
+    azure.mgmt_endpoint        = 'https://management.core.windows.net/'
+
+    # vm settings
+    azure.vm_image             =
+      'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_2-LTS-amd64-server-20150706-en-us-30GB'
+    azure.vm_location          = 'Japan East'
+    azure.vm_size              = 'ExtraSmall'
+    azure.vm_name              = 'vagrant-php'
+    azure.cloud_service_name   = 'vagrant-php'
+    azure.ssh_private_key_file = './keys/azure.key'
+    azure.ssh_certificate_file = './keys/azure-cert.pem'
+
+    azure.ssh.private_key_path = './keys/azure.key'
+    azure.vm.box               = 'azure'
+    azure.vm.box_url           = 'https://github.com/msopentech/vagrant-azure/raw/master/dummy.box'
+
+    azure.ssh_port = ENV['AZURE_SSH_PORT']
+  end
+end
