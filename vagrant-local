@@ -1,3 +1,0 @@
-#!/bin/bash
-
-VAGRANT_CWD=./local vagrant $@

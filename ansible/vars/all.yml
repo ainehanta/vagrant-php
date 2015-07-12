@@ -22,4 +22,4 @@ sqlite:
 php:
     install: '1'
     ppa: php5-5.6
-    packages: [php5-cli, php5-intl, php5-mcrypt, php5-gd, php5-sqlite, php5-mysql]
+    packages: [php5-cli, php5-intl, php5-mcrypt, php5-gd, php5-sqlite]

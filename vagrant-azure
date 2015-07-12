@@ -1,4 +1,0 @@
-#!/bin/bash
-
-source ./azure/env.sh
-VAGRANT_CWD=./azure vagrant $@
